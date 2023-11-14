@@ -14,7 +14,11 @@ public class Main {
     }
 
     @GetMapping("/greet")
-    public String greet() {
-        return "Hello";
+    public GreetResponse greet() {
+        return new GreetResponse("Hello");
+    }
+
+    // POJO blueprint to return JSON data via rest annotation (via jackson library, json parser for java)
+    record GreetResponse(String greet) {
     }
 }
